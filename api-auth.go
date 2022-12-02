@@ -73,15 +73,15 @@ func apiAuth(w http.ResponseWriter, r *http.Request) {
 	// If the user is not yet in the database, create it here
 	if user.ID == 0 {
 		user.AccountID = resAuth.AccountID
-
-		// Generate a secret
-		b := make([]byte, 48)
-		rand.Read(b)
-		user.Secret = base64.URLEncoding.EncodeToString(b)
 	}
 
 	// Update the display name in case it has changed
 	user.DisplayName = resAuth.DisplayName
+
+	// Generate a secret
+	b := make([]byte, 48)
+	rand.Read(b)
+	user.Secret = base64.URLEncoding.EncodeToString(b)
 
 	// Insert or update the user in the database
 	gDatabase.Save(&user)
