@@ -30,11 +30,17 @@ type ResponseAuth struct {
 
 func apiAuth(w http.ResponseWriter, r *http.Request) {
 	token := r.PostFormValue("t")
+	secret := viper.GetString("auth.secret")
+
+	if token == "" {
+		sendError(w, "Missing token")
+		return
+	}
 
 	// Prepare data to send to the Openplanet backend
 	params := url.Values{}
 	params.Set("token", token)
-	params.Set("secret", viper.GetString("auth.secret"))
+	params.Set("secret", secret)
 
 	// Send data to Openplanet backend for token validation
 	body := bytes.NewReader([]byte(params.Encode()))
