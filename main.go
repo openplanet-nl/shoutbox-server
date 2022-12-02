@@ -36,7 +36,7 @@ func main() {
 		return
 	}
 
-	gDatabase, err = gorm.Open(sqlite.Open("database.sqlite"), &gorm.Config{})
+	gDatabase, err = gorm.Open(sqlite.Open(viper.GetString("database.path")), &gorm.Config{})
 	if err != nil {
 		log.Printf("Unable to open sqlite database: %s\n", err.Error())
 		return

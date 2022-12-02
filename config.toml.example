@@ -1,3 +1,6 @@
 [auth]
 base = "https://openplanet.dev"
 secret = ""
+
+[database]
+path = "/data/database.sqlite"
