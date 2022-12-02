@@ -1,0 +1,8 @@
+# Configuration file
+config.toml
+
+# Database file
+database.sqlite
+
+# Debug binary
+__debug_bin

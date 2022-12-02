@@ -1,0 +1,3 @@
+[auth]
+base = "https://openplanet.dev"
+secret = ""
