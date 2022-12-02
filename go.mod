@@ -1,4 +1,4 @@
-module github.com/codecat/openplanet-shoutbox
+module github.com/openplanet-nl/shoutbox-server
 
 go 1.19
 
